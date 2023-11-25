@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+<head>
+    <title>Libreria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/Estilos.css" rel="stylesheet" type="text/css"/>
+    <link href="css/EstilosHeader.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Libreria</h1>
+        </div>
+        <div class="container__menu">
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="selected">Inicio</a></li>
+                    <li><a>Categorias</a>
+                        <ul>
+                            <li><a href="index.html">Tabla</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Iniciar Sesion</a></li>
+                            <li><a href="#">Registrarse</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="main-container">
+        <div id="container">
+           <form id="formularioProducto" method="post" action="RegistroServlet">
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" required>
+    <br>
+    <!-- Agregué los campos restantes para completar el formulario -->
+    <label for="titulo_libro">Libro:</label>
+    <input type="text" id="titulo_libro" name="titulo_libro" required>
+    <br>
+    <label for="anio_publicacion">Año de Publicacion:</label>
+    <input type="text" id="anio_publicacion" name="anio_publicacion" required>
+    <br>
+    <label for="autor">Autor:</label>
+    <input type="text" id="autor" name="autor" required>
+    <br>
+    <label for="clasificacion">Clasificacion:</label>
+    <input type="text" id="clasificacion" name="clasificacion" required>
+    <br>
+    <label for="cantidad_paginas">Cantidad de Paginas:</label>
+    <input type="text" id="cantidad_paginas" name="cantidad_paginas" required>
+    <br>
+    <label for="id_tipo_pasta">Tipo de Pasta:</label>
+    <select id="id_tipo_pasta" name="id_tipo_pasta" required>
+        <option value="400">Dura</option>
+        <option value="500">Blanda</option>
+    </select>
+    <br>
+    <button type="submit">Guardar</button>
+</form>
+
+        </div>
+        <div id="container1">
+            <button type="button" onclick="mostrarTabla()">Mostrar Tabla de Libros</button>
+            <div id="tabla-container"></div>
+            <br>
+            <button type="button" onclick="ocultarTabla()">Ocultar Tabla</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Almacen</p>
+    </footer>
+    <script>
+        function mostrarTabla() {
+            var tablaContainer = document.getElementById("tabla-container");
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    tablaContainer.innerHTML = this.responseText;
+                    tablaContainer.style.display = "block";
+                }
+            };
+            xhttp.open("GET", "MostrarTablaServlet", true);  // Corregido el nombre a "MostrarTablaServlet"
+            xhttp.send();
+        }
+
+        function ocultarTabla() {
+            var tablaContainer = document.getElementById("tabla-container");
+            tablaContainer.style.display = "none";
+        }
+
+        function eliminarProducto(isbn) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    alert(this.responseText);
+                    mostrarTabla();
+                }
+            };
+            xhttp.open("POST", "EliminarServlet", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("isbn=" + isbn);
+        }
+        function editarProducto(isbn, titulo_libro, anio_publicacion, autor, clasificacion, cantidad_paginas, id_tipo_pasta) {
+    // Construye la URL con los parámetros para la página de edición (ActualizarDatos.html)
+    var url = 'ActualizarDatos.html?isbn=' + encodeURIComponent(isbn) +
+        '&titulo_libro=' + encodeURIComponent(titulo_libro) +
+        '&anio_publicacion=' + encodeURIComponent(anio_publicacion) +
+        '&autor=' + encodeURIComponent(autor) +
+        '&clasificacion=' + encodeURIComponent(clasificacion) +
+        '&cantidad_paginas=' + encodeURIComponent(cantidad_paginas) +
+        '&id_tipo_pasta=' + encodeURIComponent(id_tipo_pasta);
+
+    // Redirige al usuario a la página de edición (ActualizarDatos.html)
+    window.location = url;
+}
+    </script>
+</body>
+</html>

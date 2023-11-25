@@ -1,0 +1,117 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* Estilos del encabezado (header) */
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0074d9;
+    color: #fff;
+}
+.header__superior{
+    max-width: auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-content h1{
+    color: #fff;
+}
+
+.container__menu{
+    height: 10%;
+    background-color: #0074d9 ;
+    padding: 0px 10px;
+}
+.menu{
+    max-width: auto;
+    margin: auto;
+    height: 30%;
+}
+nav{
+    height: 100%;
+}
+nav > ul{
+    height: 50%;
+    display: flex;
+}
+nav  ul  li{
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+nav > ul > li > a{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
+    color: #fff;
+}
+nav > ul > li > a:hover{
+    transform: scale(1.1);
+    background: #B4BDFF;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+#selected{
+    transform: scale(1.1);
+    background: #B4BDFF;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+/Sub Menu/
+nav ul li ul{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 90px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0,0, 0, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+
+}
+nav ul li:hover ul{
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+nav ul li ul:before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+nav ul li ul li a{
+    display: block;
+    color: #4d6133;
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+nav ul li ul li a:hover{
+    background: #B4BDFF;
+    color: #fff;
+    transform: scale(1.1);
+    padding-left: 30px;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0, 0, 0.5);
+}

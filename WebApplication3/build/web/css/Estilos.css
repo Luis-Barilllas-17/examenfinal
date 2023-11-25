@@ -1,0 +1,216 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+button {
+    display: block;
+    background-color: #0074d9;
+    color: #fff;
+    padding: 14px; /* Aumentado el tamaño del padding para botones */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px; /* Aumentado el tamaño de la fuente */
+    transition: background 0.3s; /* Agregar una transición de cambio de color */
+}
+
+/* Estilo de botón resaltado para "Generar Contraseña Automáticamente" */
+#generar-contraseña {
+    background:  #00A8FF; /* Efecto de resaltado */
+    font-weight: bold; /* Texto en negrita */
+}
+#generar-contraseña:hover{
+    background: #005ea6;
+}
+
+/* Cambio de color al pasar el ratón por encima */
+button:hover {
+    background-color: #005ea6; /* Cambiar a un tono más oscuro al pasar el ratón por encima */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos adicionales para el formulario de registro */
+#container1 form {
+    margin-top: 20px;
+}
+
+/* Estilos adicionales para el formulario de registro */
+#container1 form {
+    margin-top: 20px;
+}
+
+
+.password-container {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.password-container input[type="password"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-container .icon-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #0074d9;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilos para el mensaje emergente */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #0074d9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Estilo de mensaje de error */
+.popup.error {
+    border-color: #ff0000; /* Cambiar el color del borde a rojo para indicar un error */
+}
+
+/* Estilos para resaltar campos de entrada */
+input.error {
+    border: 1px solid #ff0000; /* Cambiar el borde a rojo para indicar un error */
+}
+
+
+/* Estilo para los inputs en el formulario */
+input {
+    display: block;
+    width: 100%;
+    padding: 14px; /* Aumentado el tamaño del padding para inputs */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px; /* Aumentado el tamaño de la fuente */
+}
+
+.text-container {
+    width: 100%;
+}
+/* Estilo para el contenedor principal que alberga el container y el tabla-container */
+#main-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Estilo para el container original */
+#container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-size: 16px; /* Aumentado el tamaño de la fuente */
+}
+
+/* Estilo para el segundo container */
+#container1 {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    margin: 0 10px;
+    padding: 20px;
+    height: auto;
+    font-size: 16px; /* Aumentado el tamaño de la fuente */
+}
+/* Estilo para el contenedor de la tabla */
+#tabla-container {
+    margin-top: 20px;
+    display: none;
+    flex: 1; /* Para que ocupe el espacio restante al lado del #container y #container1 */
+}
+
+/* Estilos para la tabla */
+table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: center;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    text-align: center;
+    background-color: #0074d9;
+    color: #fff;
+}
+/* CSS para el botón de editar */
+button.editar-btn {
+    background-color: #28a745; /* Verde */
+    color: #fff; /* Texto blanco */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Efecto hover para el botón de editar */
+button.editar-btn:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón por encima */
+}
+
+/* CSS para el botón de eliminar */
+button.eliminar-btn {
+    background-color: #dc3545; /* Rojo */
+    color: #fff; /* Texto blanco */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Efecto hover para el botón de eliminar */
+button.eliminar-btn:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el ratón por encima */
+}

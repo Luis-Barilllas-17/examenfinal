@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Libreria</title>
+    <meta charset="UTF-8">
+    <link href="css/Estilos.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <!-- Tu contenido del encabezado -->
+    </header>
+    <div id="main-container">
+        <div id="container">
+            <form id="formularioProducto" method="post" action="EditarServlet">
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" required>
+                <br>
+                <label for="titulo_libro">Libro:</label>
+                <input type="text" id="titulo_libro" name="titulo_libro" required>
+                <br>
+                <label for="anio_publicacion">Año de Publicacion:</label>
+                <input type="text" id="anio_publicacion" name="anio_publicacion" required>
+                <br>
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor">
+                <br>
+                <label for="clasificacion">Clasificacion:</label>
+                <input type="text" id="clasificacion" name="clasificacion">
+                <br>
+                <label for="cantidad_paginas">Cantidad de Páginas:</label>
+                <input type="text" id="cantidad_paginas" name="cantidad_paginas">
+                <br>
+    <label for="id_tipo_pasta">Tipo de Pasta:</label>
+    <select id="id_tipo_pasta" name="id_tipo_pasta" required>
+        <option value="400">Dura</option>
+        <option value="500">Blanda</option>
+    </select>
+    <br>
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Almacen</p>
+    </footer>
+    <script>
+        function prellenarFormulario() {
+            const isbn = obtenerParametroUrl('isbn');
+            const titulo_libro = obtenerParametroUrl('titulo_libro');
+            const anio_publicacion = obtenerParametroUrl('anio_publicacion');
+            const autor = obtenerParametroUrl('autor');
+            const clasificacion = obtenerParametroUrl('clasificacion');
+            const cantidad_paginas = obtenerParametroUrl('cantidad_paginas');
+            const id_tipo_pasta = obtenerParametroUrl('id_tipo_pasta');
+
+            if (isbn) {
+                document.getElementById('isbn').value = isbn;
+                document.getElementById('titulo_libro').value = titulo_libro;
+                document.getElementById('anio_publicacion').value = anio_publicacion;
+                document.getElementById('autor').value = autor;
+                document.getElementById('clasificacion').value = clasificacion;
+                document.getElementById('cantidad_paginas').value = cantidad_paginas;
+                document.getElementById('id_tipo_pasta').value = id_tipo_pasta;
+            } else {
+                alert('Error: No se proporcionaron los parámetros necesarios.');
+                window.location = 'index.html';
+            }
+        }
+
+        function obtenerParametroUrl(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
+
+        window.onload = prellenarFormulario;
+    </script>
+</body>
+</html>
